@@ -19,9 +19,7 @@ public class Conversor {
 
       Integer valorDeValorString = Integer.parseInt(String.valueOf(valorString.charAt(num)));
 
-      System.out.println("Digito de valorString " + valorDeValorString);
-
-      valoresBase.add(Integer.valueOf(String.valueOf(valorString.charAt(num))));
+      valoresBase.add(valorDeValorString);
     }
 
     System.out.println(valorString);
@@ -35,18 +33,10 @@ public class Conversor {
       for (int num = valoresBase.size() - 1; num >= 0; num--) {
         Integer valorr = valoresBase.get(num);
 
-        System.out.println("Valor do valoresBase: " + valorr);
-
         resultadoDasPotencias.add(valorr * pontenciador(base, expoente));
-
-        System.out.println("Resultado das pontencias: " + resultadoDasPotencias.toString());
 
         expoente++;
       }
-
-      // for (int num = 0; num < resultadoDasPotencias.size(); num++) {
-      // valorFinal += resultadoDasPotencias.get(num) * valoresBase.get(num);
-      // }
 
       for (Integer resultP : resultadoDasPotencias) {
         valorFinal += resultP;
@@ -64,40 +54,31 @@ public class Conversor {
     Integer valorFinal = 1;
 
     if (expoente == 0) {
-      System.out.println("expoente dentro do loop do pontenciador: " + expoente + " Valor da base: " + base);
 
       return 1;
     }
 
     if (expoente == 1) {
-      System.out.println("expoente dentro do loop do pontenciador: " + expoente + " Valor da base: " + base);
 
       return base;
     }
 
     if (base == 0) {
-      System.out.println("expoente dentro do loop do pontenciador: " + expoente + " Valor da base: " + base);
 
       return 0;
     }
 
     if (base == 1) {
-      System.out.println("expoente dentro do loop do pontenciador: " + expoente + " Valor da base: " + base);
 
       return 1;
     }
 
     // O loop esta fazendo a mesma conta varias vezes isto provelmente e um erro;
     for (int num = 1; num <= expoente; num++) {
-      System.out.println("Valor do num: " + num);
-      System.out.println("expoente dentro do loop do pontenciador: " + expoente);
 
       valorFinal = valorFinal * base;
 
-      System.out.println("valorFinal atual do num " + num + ": " + valorFinal);
     }
-
-    System.out.println("Valor final: " + valorFinal);
 
     return valorFinal;
   }
