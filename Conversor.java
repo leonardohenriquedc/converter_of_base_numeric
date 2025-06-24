@@ -1,28 +1,39 @@
 import java.util.List;
+import java.util.Scanner;
 import java.util.ArrayList;
 
+// A um bug em binarios que começam com 0
 public class Conversor {
   public static void main(String[] args) {
-    Integer valor = conversor(2, 11001011);
 
-    System.out.println(valor);
+    Scanner scan = new Scanner(System.in);
+
+    System.out.println("Informe a base do numero que deseja converter: ");
+    Integer base = scan.nextInt();
+
+    scan.nextLine();
+
+    System.out.println("Informe o valor que deseja converter: ");
+    String valor = scan.nextLine();
+
+    Integer valorConvertido = conversor(base, valor);
+
+    System.out.println(valorConvertido);
   }
 
-  public static Integer conversor(Integer base, Integer valor) {
+  public static Integer conversor(Integer base, String valor) {
     List<Integer> resultadoDasPotencias = new ArrayList<>();
 
     List<Integer> valoresBase = new ArrayList<>();
 
-    String valorString = valor.toString();
+    for (int num = 0; num < valor.length(); num++) {
 
-    for (int num = 0; num < valorString.length(); num++) {
-
-      Integer valorDeValorString = Integer.parseInt(String.valueOf(valorString.charAt(num)));
+      Integer valorDeValorString = Integer.parseInt(String.valueOf(valor.charAt(num)));
 
       valoresBase.add(valorDeValorString);
     }
 
-    System.out.println(valorString);
+    System.out.println(valor);
 
     if (base == 2) {
 
